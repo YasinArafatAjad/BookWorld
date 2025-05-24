@@ -9,7 +9,7 @@ const Cart = () => {
   const { items, total, removeItem, updateQuantity, clearCart } = useCart()
   const navigate = useNavigate()
   const [orderNote, setOrderNote] = useState('')
-  const freeShipping = 10200
+  const freeShipping = 1000
   const courierCharge = 180
 
   // Calculate shipping fee based on total
