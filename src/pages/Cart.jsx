@@ -9,11 +9,12 @@ const Cart = () => {
   const { items, total, removeItem, updateQuantity, clearCart } = useCart()
   const navigate = useNavigate()
   const [orderNote, setOrderNote] = useState('')
-  const freeShipping = 1000
+  const minShipping = 1000
   const courierCharge = 180
 
+  
   // Calculate shipping fee based on total
-  const shippingFee = total >= freeShipping ? 0 : courierCharge
+  const shippingFee = total >= minShipping ? 0 : courierCharge
   
   // Calculate order total
   const orderTotal = total + shippingFee
@@ -26,6 +27,8 @@ const Cart = () => {
     
     // Navigate to checkout
     navigate('/checkout')
+
+
   }
 
   return (
@@ -200,9 +203,9 @@ const Cart = () => {
                       )}
                     </span>
                   </div>
-                  {total < freeShipping && (
+                  {total < minShipping && (
                     <div className="text-sm text-gray-500 dark:text-gray-400 italic">
-                      Add ৳{(freeShipping - total).toFixed(2)} more to qualify for free shipping
+                      Add ৳{(minShipping - total).toFixed(2)} more to qualify for free shipping
                     </div>
                   )}
                 </div>

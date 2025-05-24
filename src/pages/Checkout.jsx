@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { FiLock } from 'react-icons/fi'
@@ -10,6 +10,9 @@ const Checkout = () => {
   const { items, total, clearCart } = useCart()
   const [loading, setLoading] = useState(false)
   const [paymentMethod, setPaymentMethod] = useState('card')
+  const minShipping = 1000
+  const courierCharge = 180
+
   
   const [formData, setFormData] = useState({
     name: '',
@@ -25,7 +28,7 @@ const Checkout = () => {
   })
 
   // Calculate shipping based on total
-  const shippingFee = total >= 35 ? 0 : 5.99
+  const shippingFee = total >= minShipping ? 0 : courierCharge
   const orderTotal = total + shippingFee
 
   const handleInputChange = (e) => {
