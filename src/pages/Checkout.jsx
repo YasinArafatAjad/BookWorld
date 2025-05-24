@@ -72,6 +72,7 @@ const Checkout = () => {
     )
   }
 
+  const codFee = 10
   return (
     <>
       <Helmet>
@@ -272,7 +273,7 @@ const Checkout = () => {
                     {paymentMethod === 'cod' && (
                       <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
                         <p className="text-sm text-yellow-800 dark:text-yellow-200">
-                          Pay with cash upon delivery. Additional fee of $2.00 applies for COD orders.
+                          Pay with cash upon delivery. Additional fee of ৳{codFee} applies for COD orders.
                         </p>
                       </div>
                     )}
@@ -286,7 +287,7 @@ const Checkout = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  {loading ? 'Processing...' : `Place Order - $${(orderTotal + (paymentMethod === 'cod' ? 2 : 0)).toFixed(2)}`}
+                  {loading ? 'Processing...' : `Place Order - ৳${(orderTotal + (paymentMethod === 'cod' ? codFee : 0)).toFixed(2)}`}
                 </motion.button>
               </form>
             </div>
@@ -315,7 +316,7 @@ const Checkout = () => {
                         </p>
                       </div>
                       <span className="text-sm font-medium text-gray-900 dark:text-white">
-                        ${(item.price * item.quantity).toFixed(2)}
+                        ৳{(item.price * item.quantity).toFixed(2)}
                       </span>
                     </div>
                   ))}
@@ -325,7 +326,7 @@ const Checkout = () => {
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-600 dark:text-gray-400">Subtotal</span>
                     <span className="text-gray-900 dark:text-white font-medium">
-                      ${total.toFixed(2)}
+                      ৳{total.toFixed(2)}
                     </span>
                   </div>
                   <div className="flex justify-between text-sm">
@@ -334,7 +335,7 @@ const Checkout = () => {
                       {shippingFee === 0 ? (
                         <span className="text-green-500">Free</span>
                       ) : (
-                        `$${shippingFee.toFixed(2)}`
+                        `৳${shippingFee.toFixed(2)}`
                       )}
                     </span>
                   </div>
@@ -342,14 +343,14 @@ const Checkout = () => {
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-600 dark:text-gray-400">COD Fee</span>
                       <span className="text-gray-900 dark:text-white font-medium">
-                        $2.00
+                        ৳{codFee}
                       </span>
                     </div>
                   )}
                   <div className="flex justify-between text-lg font-medium pt-2">
                     <span className="text-gray-900 dark:text-white">Total</span>
                     <span className="text-primary-500">
-                      ${(orderTotal + (paymentMethod === 'cod' ? 2 : 0)).toFixed(2)}
+                      ৳{(orderTotal + (paymentMethod === 'cod' ? codFee : 0)).toFixed(2)}
                     </span>
                   </div>
                 </div>

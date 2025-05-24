@@ -116,7 +116,7 @@ const bookSchema = new mongoose.Schema({
 
 // Virtual for formatted price
 bookSchema.virtual('formattedPrice').get(function() {
-  return `$${this.price.toFixed(2)}`
+  return `৳${this.price.toFixed(2)}`
 })
 
 // Update timestamps on document update

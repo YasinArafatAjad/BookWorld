@@ -123,17 +123,17 @@ const orderSchema = new mongoose.Schema({
 
 // Virtual for formatted subtotal
 orderSchema.virtual('formattedSubtotal').get(function() {
-  return `$${this.subtotal.toFixed(2)}`
+  return `৳${this.subtotal.toFixed(2)}`
 })
 
 // Virtual for formatted shipping price
 orderSchema.virtual('formattedShippingPrice').get(function() {
-  return `$${this.shippingPrice.toFixed(2)}`
+  return `৳${this.shippingPrice.toFixed(2)}`
 })
 
 // Virtual for formatted total
 orderSchema.virtual('formattedTotal').get(function() {
-  return `$${this.total.toFixed(2)}`
+  return `৳${this.total.toFixed(2)}`
 })
 
 const Order = mongoose.model('Order', orderSchema)

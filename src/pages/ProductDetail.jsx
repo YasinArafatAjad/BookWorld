@@ -227,7 +227,7 @@ const ProductDetail = () => {
             {/* Price */}
             <div className="mb-6">
               <p className="text-3xl font-bold text-gray-900 dark:text-white">
-                ${book.price.toFixed(2)}
+                ৳{book.price.toFixed(2)}
               </p>
               {book.stock > 0 ? (
                 <p className="text-sm text-green-600 dark:text-green-400 flex items-center mt-1">
@@ -288,7 +288,7 @@ const ProductDetail = () => {
                 </div>
               </div>
               <p className="text-xs text-gray-500 dark:text-gray-400">
-                Free shipping on orders over $35
+                Free shipping on orders over ৳35
               </p>
             </div>
 

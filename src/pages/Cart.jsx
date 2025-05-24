@@ -9,9 +9,11 @@ const Cart = () => {
   const { items, total, removeItem, updateQuantity, clearCart } = useCart()
   const navigate = useNavigate()
   const [orderNote, setOrderNote] = useState('')
+  const freeShipping = 10200
+  const courierCharge = 180
 
   // Calculate shipping fee based on total
-  const shippingFee = total >= 35 ? 0 : 5.99
+  const shippingFee = total >= freeShipping ? 0 : courierCharge
   
   // Calculate order total
   const orderTotal = total + shippingFee
@@ -102,7 +104,7 @@ const Cart = () => {
                               {item.author}
                             </p>
                             <p className="text-primary-500 font-medium mb-3">
-                              ${item.price.toFixed(2)}
+                              ৳{item.price.toFixed(2)}
                             </p>
 
                             {/* Quantity Controls */}
@@ -140,7 +142,7 @@ const Cart = () => {
 
                           {/* Item Total */}
                           <div className="text-right font-medium text-gray-900 dark:text-white">
-                            ${(item.price * item.quantity).toFixed(2)}
+                            ৳{(item.price * item.quantity).toFixed(2)}
                           </div>
                         </motion.div>
                       ))}
@@ -185,7 +187,7 @@ const Cart = () => {
                   <div className="flex justify-between">
                     <span className="text-gray-600 dark:text-gray-400">Subtotal</span>
                     <span className="text-gray-900 dark:text-white font-medium">
-                      ${total.toFixed(2)}
+                      ৳{total.toFixed(2)}
                     </span>
                   </div>
                   <div className="flex justify-between">
@@ -194,13 +196,13 @@ const Cart = () => {
                       {shippingFee === 0 ? (
                         <span className="text-green-500">Free</span>
                       ) : (
-                        `$${shippingFee.toFixed(2)}`
+                        `৳${shippingFee.toFixed(2)}`
                       )}
                     </span>
                   </div>
-                  {total < 35 && (
+                  {total < freeShipping && (
                     <div className="text-sm text-gray-500 dark:text-gray-400 italic">
-                      Add ${(35 - total).toFixed(2)} more to qualify for free shipping
+                      Add ৳{(freeShipping - total).toFixed(2)} more to qualify for free shipping
                     </div>
                   )}
                 </div>
@@ -208,7 +210,7 @@ const Cart = () => {
                 <div className="flex justify-between mb-8">
                   <span className="text-lg font-medium text-gray-900 dark:text-white">Total</span>
                   <span className="text-xl font-bold text-primary-500">
-                    ${orderTotal.toFixed(2)}
+                    ৳{orderTotal.toFixed(2)}
                   </span>
                 </div>
 

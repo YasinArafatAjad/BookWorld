@@ -176,7 +176,7 @@ const Home = () => {
     <>
       <Helmet>
         <title>BookWorld | Your Premier Online Bookstore</title>
-        <meta name="description" content="Discover the best books at BookWorld - fiction, non-fiction, bestsellers, and new releases. Free shipping on orders over $35." />
+        <meta name="description" content="Discover the best books at BookWorld - fiction, non-fiction, bestsellers, and new releases. Free shipping on orders over ৳35." />
         <meta name="keywords" content="bookworld, book world, books, bookstore, fiction, non-fiction, bestsellers, reading" />
         <meta property="og:title" content="BookWorld | Your Premier Online Bookstore" />
         <meta property="og:description" content="Discover the best books at BookWorld - fiction, non-fiction, bestsellers, and new releases. Free shipping on orders over $35." />

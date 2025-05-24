@@ -56,7 +56,7 @@ const BookCard = ({ book }) => {
               </p>
             </div>
             <span className="text-lg font-semibold text-primary-500">
-              ${formattedPrice}
+              ৳{formattedPrice}
             </span>
           </div>
           
