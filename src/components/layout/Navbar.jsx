@@ -93,7 +93,7 @@ const Navbar = () => {
             {/* Cart */}
             <Link 
               to="/cart" 
-              className={`p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-200`}
+              className={`p-2 relative rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-200`}
             >
               <FiShoppingCart size={20} />
               {itemCount > 0 && (
